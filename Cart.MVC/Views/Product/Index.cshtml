@@ -1,0 +1,72 @@
+﻿
+@model IEnumerable<Cart.MVC.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<style type="text/css">
+    textarea {
+        border: none;
+        resize: none;
+        width: 330px;
+        height: 12em;
+    }
+</style>
+
+
+@*<form asp-controller="Product" asp-action="SearchIndex">
+        <p>
+            Search Product: <input type="text" name="SearchString">
+            <input type="submit" value="Filter" />
+        </p>
+    </form>*@
+@*<p>
+        @Html.ActionLink("My Cart", "Index", "Cart")
+    </p>*@
+<div class="container-wrapper" id="product-index" style="min-height:513px">
+
+    <div class="container">
+        <h3></h3>
+        @if (Model.Count() > 0)
+        {
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-6 col-md-4">
+
+                        <div class="thumbnail">
+                            <img src=@Html.DisplayFor(modelItem => item.ProductImage) class="tile-img" />
+
+                        <h4>@Html.DisplayFor(modelItem => item.ProductTitle)</h4>
+
+                        <div class="thumbnail-body">
+                            @Html.TextAreaFor(modelItem => item.ProductDescription, new { @readonly = true })
+                            
+                        </div>
+                        <span><b>Rs. @Html.DisplayFor(modelItem => item.ProductPrice)</b></span>
+
+                            <p>
+                                <a id=@Html.DisplayFor(modelItem => item.Id) href="@Url.Action("AddToCart", "Product", new { productId = @Html.DisplayFor(modelItem => item.Id) })" class="btn btn-info btn-lg">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart
+                                    @*<input type="submit" id=@Html.DisplayFor(modelItem => item.Id) name="submit" class="btn btn-primary" value="Add to cart" onclick="location.href='@Url.Action("Info", "Template", new {productId = @Html.DisplayFor(modelItem => item.Id)} )'" />*@
+
+
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        }
+        else
+        {            
+            <p>@Html.Label("empty-label", "No Products available.", new { @class = "control-label col-sm-2" })</p>
+        }
+    </div>
+</div>
+
+
+

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - HCL Shopping Cart</title>
+    @*<environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+
+    </environment>*@
+
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/Css/Template.css")
+    @Styles.Render("~/Content/Css/font-awesome.css")
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    @using (Html.BeginForm("SearchProduct", "Product", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("HCL Shopping Cart", "Index", "Product", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("My Orders", "MyOrders", "Order")</li>
+
+                    </ul>
+                    <div class="dropdown user-drop btn-group">
+                        <span>
+                            <span id="search">
+                                Search Product <input type="text" name="SearchString">
+                                <input type="submit" id="search" class="btn" value="Filter" />
+                                @*<input type="submit" value="Filter" class="btn" onclick="location.href='@Url.Action("SearchProduct", "Product")'" />*@
+                                @*<input type="submit" value="Proceed to checkout" onclick="location.href='@Url.Action("CheckOut", "Cart")'" class="btn btn-info btn-lg" />
+                                    <a id=@Html.DisplayFor(modelItem => item.Id) href="@Url.Action("AddToCart", "Product", new {productId = @Html.DisplayFor(modelItem => item.Id)})" class="btn btn-info btn-lg">*@
+                            </span>
+                            <a href="@Url.Action("Index", "Cart")" class="btn btn-info btn-lg" style="margin-right: 10px">
+                                <span class="glyphicon glyphicon-shopping-cart" style="color:green"></span> My Cart
+                            </a>
+                            <i class="fa fa-user"></i>
+                            <span id="lblUser">
+                                @Session["CurrentUserName"]
+                            </span>
+                            @*<i class="fa fa-sign-out"></i>*@
+
+                            <a href="~/Home/Login" style="color:white"><i class="fa fa-sign-out"></i></a>
+                            @*@Html.ActionLink("My Cart", "Index", "Cart")*@
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        @RenderBody()
+        @Html.Partial("_Footer")
+        
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    }
+</body>
+</html>

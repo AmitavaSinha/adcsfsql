@@ -1,0 +1,101 @@
+﻿@using System.Configuration;
+@model   Cart.MVC.Models.SharePointAuthAutho
+
+@{
+    ViewBag.Title = "Login";
+}
+@{
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+
+<header class="header">
+    @*@{
+            var img = ConfigurationManager.AppSettings["LandingPageHeaderImg"].ToString();
+            <img id="imgLogo" title="Customer Logo" src="@img" alt="customer logo" />
+        }*@
+    <div>
+        <p class="logoatheader">
+            <span class="hcllogo"><img align="middle" src="~/Content/Images/HCLLogosmall.png"> |</span> <span style="color:white;font-size:16px;font-weight:700;text-transform:capitalize;">Shopping cart</span>
+        </p>
+    </div>
+
+    <style>
+        .logoatheader {
+            color: white;
+            font-size: 25px;
+        }
+
+        .hcllogo {
+            font-size: 25px;
+            font-style: italic;
+            font-family: Helvetica;
+            font-weight: bolder;
+            font-stretch: ultra-expanded;
+            margin-right: 7px;
+        }
+
+        .customerlogo {
+            font-size: 20px;
+            font-style: normal;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+    </style>
+
+    <script>
+        /*--- Hide Error Message ---*/
+        function onchangeeventUser() {
+            $('#user').hide();
+        }
+
+        function onchangeeventPswd() {
+            $('#pswd').hide();
+        }
+
+        function disableThisButton() {
+            $('#wipimgdiv').show();
+        }
+    </script>
+</header>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <section class="container validate-cont">
+        <div id="wipimgdiv" style="display:none; margin:0px auto; position:absolute; margin-left: 500px; margin-top: 150px;">
+            <img src="~/Content/Images/WIP_Animated.gif" style="width:50%" />
+        </div>
+        <div class="login-box">
+            @if (ViewBag.Message != null)
+            {
+                <span style="border: 1px solid red;align-content:center">
+                    ViewBag.Message
+                </span>
+            }
+            <h1>Login</h1>
+            <div class="form-box">
+                <span class="add-ons"><i class="glyphicon glyphicon-user"></i></span>
+                @Html.TextBoxFor(a => a.UserName, new { @placeholder = "Username", @onchange = "onchangeeventUser();" })
+                <div id="user" style="color:red;align-content:center;text-align:center">
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </div>
+
+            </div>
+            <div class="form-box">
+                <span class="add-ons"><i class="glyphicon glyphicon-lock"></i></span>
+                @Html.PasswordFor(a => a.Password, new { @placeholder = "Password", @onchange = "onchangeeventPswd();" })
+                <div id="pswd" style="color:red;align-content:center;text-align:center">
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </div>
+
+            <input type="submit" id="btnLogin" value="Login" name="btnLogin" class="btn btn-login" onclick="disableThisButton(this);animateText();" />
+        </div>
+
+    </section>
+}
+

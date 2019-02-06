@@ -1,0 +1,78 @@
+﻿
+
+.user-drop {
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 30px;
+    float: right;
+    cursor: pointer;
+}
+
+    .user-drop span {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
+
+    .user-drop i {
+        font-size: 1.5em
+    }
+
+.btn-lg {
+    padding: 4px 6px 4px 6px;
+    font-size: 14px;
+    line-height: 2;
+    border-radius: 6px;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #434040;
+    border-color: #434040;
+}
+
+#search {
+    display: inline;
+    margin-right: 30px;
+}
+
+#search input{
+    color: #333;
+}
+    #search .btn {
+        padding: 3px 10px;
+        margin: -2px 0 0 0;
+        color: #333;
+    }
+
+.thumbnail {
+    /*height: 350px;*/
+    padding: 5px 20px;
+}
+
+    .thumbnail h4 {
+        /*height: 4em;*/
+        
+    }
+
+.thumbnail-body {
+    /*height: 12em;*/
+}
+
+.thumbnail p {
+    margin: 5px 0;
+}
+
+.thumbnail img.tile-img {
+    /*width: 200px;*/
+    height: 150px;
+    /*border: 1px solid #cccccc;*/
+}
+
+.footer {
+    padding-top: 17px;
+    padding-bottom: 7px;
+    background-color: rgb(25, 25, 25);
+}

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Cart.MVC.Models.CartProducts>
+
+@{
+    ViewBag.Title = "OrderDetails";
+}
+
+
+
+<div class="container-wrapper" style="min-height:513px">
+    <div class="container">
+        <h3>Order Details</h3>
+        <table class="table">
+            <tr>
+                <th>
+                    <span>Order Id</span>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductCategory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderHeaderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductCategory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>*@
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

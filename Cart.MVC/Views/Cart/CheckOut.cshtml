@@ -1,0 +1,42 @@
+﻿@*@model Cart.MVC.Models.OrderHeader*@
+
+
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+@using (Html.BeginForm("ConfirmOrder", "Cart",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-wrapper" style="min-height:513px">
+        <div class="container">
+            <h3>Place Order</h3>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.Label("Shipping Address", new { @class = "control-label col-sm-2" })
+                    <div class="form-box">
+                        <div class="col-sm-4">
+                            @Html.TextArea("shippingAddress", new { @class = "form-control" })
+                            @* @Html.TextAreaFor(a => a.ShippingAddress, new { @placeholder = "Shipping address", @class = "form-control" })*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    @Html.Label("Payment mode", new { @class = "control-label col-sm-2" })
+                    <div class="form-box">
+                        <div class="col-sm-4">
+                            @Html.RadioButton("paymentMethod", "COD")@Html.Label("COD")
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" id="ConfirmOrder" class="btn btn-info btn-lg" value="Confirm Order" formaction="ConfirmOrder" />
+            @*<a href="@Url.Action("ConfirmOrder", "Cart")" class="btn btn-info btn-lg">Confirm Order</a>*@
+        </div>
+    </div>
+}
+

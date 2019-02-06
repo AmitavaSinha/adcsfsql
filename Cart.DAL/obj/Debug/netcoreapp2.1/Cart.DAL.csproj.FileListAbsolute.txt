@@ -1,0 +1,11 @@
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\bin\Debug\netcoreapp2.1\Cart.DAL.deps.json
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\bin\Debug\netcoreapp2.1\Cart.DAL.runtimeconfig.json
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\bin\Debug\netcoreapp2.1\Cart.DAL.runtimeconfig.dev.json
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\bin\Debug\netcoreapp2.1\Cart.DAL.dll
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\bin\Debug\netcoreapp2.1\Cart.DAL.pdb
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\obj\Debug\netcoreapp2.1\Cart.DAL.csprojAssemblyReference.cache
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\obj\Debug\netcoreapp2.1\Cart.DAL.csproj.CoreCompileInputs.cache
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\obj\Debug\netcoreapp2.1\Cart.DAL.AssemblyInfoInputs.cache
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\obj\Debug\netcoreapp2.1\Cart.DAL.AssemblyInfo.cs
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\obj\Debug\netcoreapp2.1\Cart.DAL.dll
+C:\COE\SourceCode\MS Modernization\CodeBase\CartAPI\Cart.DAL\obj\Debug\netcoreapp2.1\Cart.DAL.pdb

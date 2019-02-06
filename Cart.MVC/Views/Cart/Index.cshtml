@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Cart.MVC.Models.CartProducts>
+
+@{
+    ViewBag.Title = "My cart";
+}
+
+
+
+
+<div class="container-wrapper" style="min-height:513px">
+    <div class="container">
+        <h3>My Cart</h3>
+        @if (Model != null)
+        {
+            if (Model.Count() > 0)
+            {
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductCategory)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductPrice)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Quantity)
+                        </th>
+
+
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductCategory)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductPrice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { @class = "btn btn-info" })
+                            </td>
+
+
+                        </tr>
+                    }
+
+                </table>
+
+                <p><b>Totlal amount to pay: Rs <span>@ViewBag.TotalAmount</span></b></p>
+                @Html.ActionLink("Proceed to checkout", "CheckOut", new { @class = "control-label col-sm-2" })
+                @*<input type="submit" value="Proceed to checkout" onclick="location.href='@Url.Action("CheckOut", "Cart")'" class="btn btn-info btn-lg" />*@
+            }
+            else
+            {
+                <p>@Html.Label("empty-label", "Your cart is empty.")</p>
+            }
+        }
+        else
+        {
+            <p>@Html.Label("empty-label", "Your cart is empty.")</p>
+        }
+    </div>
+</div>
+
+
